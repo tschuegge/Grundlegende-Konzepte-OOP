@@ -1,0 +1,52 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title">Methode "{{methode}}"</h4>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngIf="result.length === 0" [ngSwitch]="methode">
+
+      <ng-container *ngSwitchCase="methoden.autoBeschleunigen">
+        <h4>Parameter</h4>
+        <div class="form-group">
+          <label for="gaspedalInProzent">gaspedalInProzent</label>
+          <input type="range" class="form-control custom-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="text-monospace">beschleunigen({{form.value.gaspedalInProzent}})</span> ausführen</button>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="methoden.autoVollgas">
+        <button type="submit" class="btn btn-primary"><span class="text-monospace">vollgas()</span> ausführen</button>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="methoden.motorBerechneGeschwindigkeit">
+        <h4>Parameter</h4>
+        <div class="form-group">
+          <label for="gaspedalInProzent">gaspedalInProzent</label>
+          <input type="range" class="form-control custom-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="text-monospace">berechneGeschwindigkeit({{form.value.gaspedalInProzent}})</span> ausführen</button>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="methoden.radReifenAbnutzen">
+        <h4>Parameter</h4>
+        <div class="form-group">
+          <label for="gaspedalInProzent">gaspedalInProzent</label>
+          <input type="range" class="form-control custom-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+        </div>
+        <div class="form-group">
+          <label for="leistungInKw">leistungInKw</label>
+          <input type="number" class="form-control" formControlName="leistungInKw" id="leistungInKw">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="text-monospace">reifenAbnutzen({{form.value.gaspedalInProzent}}, {{form.value.leistungInKw}})</span> ausführen</button>
+      </ng-container>
+
+    </ng-container>
+    <ng-container *ngIf="result.length > 0">
+      <h4>Ergebnis</h4>
+      <pre>{{result}}</pre>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Schliessen</button>
+  </div>
+</form>

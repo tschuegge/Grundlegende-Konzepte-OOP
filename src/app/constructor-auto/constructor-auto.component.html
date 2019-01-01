@@ -1,0 +1,60 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title">Konstruktor für "Auto"</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="name">Name der Instanz</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+    </div>
+    <hr>
+    <h5>Parameter</h5>
+    <div class="form-group">
+      <label for="farbe">farbe</label>
+      <input type="text" class="form-control" formControlName="farbe" id="farbe">
+    </div>
+    <div class="form-group">
+      <label for="marke">marke</label>
+      <input type="text" class="form-control" formControlName="marke" id="marke">
+    </div>
+    <div class="form-group">
+      <label for="motor">motor</label>
+      <select class="custom-select form-control" formControlName="motor" id="motor">
+        <option *ngFor="let motor of motoren" [ngValue]="motor">{{motor.name}}</option>
+        <option *ngIf="motoren.length === 0" disabled>Keine Instanzen vom Typ "Motor" vorhanden!</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="radVorneLinks">radVorneLinks</label>
+      <select class="custom-select form-control" formControlName="radVorneLinks" id="radVorneLinks">
+        <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
+        <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="radVorneRechts">radVorneRechts</label>
+      <select class="custom-select form-control" formControlName="radVorneRechts" id="radVorneRechts">
+        <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
+        <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="radHintenLinks">radHintenLinks</label>
+      <select class="custom-select form-control" formControlName="radHintenLinks" id="radHintenLinks">
+        <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
+        <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="radHintenRechts">radHintenRechts</label>
+      <select class="custom-select form-control" formControlName="radHintenRechts" id="radHintenRechts">
+        <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
+        <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+      </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Neue Instanz anlegen</button>
+    <button type="button" class="btn btn-secondary" (click)="close()">Abbrechen</button>
+  </div>
+</form>

@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/* Bootstrap */
+@import "~bootstrap/scss/bootstrap";
+
+// Anpassungen Bootstrap
+pre {
+  margin-bottom: 0;
+  font-size: 0.7em;
+}

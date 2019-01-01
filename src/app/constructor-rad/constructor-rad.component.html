@@ -1,0 +1,22 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title">Konstruktor für "Rad"</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="name">Name der Instanz</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+    </div>
+    <h5>Parameter</h5>
+    <div class="form-group">
+      <label for="reifentyp">reifentyp</label>
+      <select class="custom-select form-control" formControlName="reifentyp" id="reifentyp">
+        <option *ngFor="let item of typen | keyvalue" [value]="item.key">{{item.value}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Neue Instanz anlegen</button>
+    <button type="button" class="btn btn-secondary" (click)="close()">Abbrechen</button>
+  </div>
+</form>

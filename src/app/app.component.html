@@ -1,20 +1,66 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+  <span class="navbar-brand">Grundlegende Konzepte</span>
+</nav>
 
+<div class="container-fluid" style="margin-top: 70px;">
+  <h3>Klassen</h3>
+  <div class="d-flex flex-wrap">
+    <div class="card mr-3 mb-3">
+      <div class="card-header h6">Auto</div>
+      <div class="card-body">
+        <pre>+ farbe : string</pre>
+        <pre>+ marke : string</pre>
+        <pre>+ motor : Motor</pre>
+        <pre>+ radVorneLinks : Rad</pre>
+        <pre>+ radVorneRechts : Rad</pre>
+        <pre>+ radHintenLinks : Rad</pre>
+        <pre>+ radHintenRechts : Rad</pre>
+      </div>
+      <hr class="my-0">
+      <div class="card-body">
+        <pre>+ beschleunigen(gaspedalInProzent: number): number</pre>
+        <pre>+ vollgas(): number</pre>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary text-monospace mr-3" (click)="openNewAutoPopup()"><small>new Auto()</small></button>
+        <button type="button" class="btn btn-sm btn-secondary text-monospace" (click)="generateAuto()"><small>new Auto() (automatisch)</small></button>
+      </div>
+    </div>
+    <div class="card mr-3 mb-3">
+      <div class="card-header h6">Motor</div>
+      <div class="card-body">
+        <pre>+ leistungInKw : number</pre>
+        <pre>+ treibstoff : <ng-container *ngFor="let item of treibstoffe | keyvalue; let last = last">"{{item.value}}"<ng-container *ngIf="!last"> | </ng-container></ng-container></pre>
+      </div>
+      <hr class="my-0">
+      <div class="card-body">
+        <pre>+ berechneGeschwindigkeit(gaspedalInProzent: number): number</pre>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="openNewMotorPopup()"><small>new Motor()</small></button>
+      </div>
+    </div>
+    <div class="card mr-3 mb-3">
+      <div class="card-header h6">Rad</div>
+      <div class="card-body">
+        <pre>+ reifenZustandInProzent : number</pre>
+        <pre>+ typ : <ng-container *ngFor="let item of reifentypen | keyvalue; let last = last">"{{item.value}}"<ng-container *ngIf="!last"> | </ng-container></ng-container></pre>
+      </div>
+      <hr class="my-0">
+      <div class="card-body">
+        <pre>+ reifenAbnutzen(gaspedalInProzent: number, leistungInKw: number): void</pre>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="openNewRadPopup()"><small>new Rad()</small></button>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3>Objekte</h3>
+  <div class="d-flex flex-wrap">
+    <app-objekt-anzeige *ngFor="let objekt of objekte" [objekt]="objekt"></app-objekt-anzeige>
+    <div *ngIf="objekte.length === 0" class="text-muted"><fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon><em>Keine Objekte vorhanden</em></div>
+  </div>
+</div>

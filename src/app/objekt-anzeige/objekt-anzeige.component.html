@@ -1,0 +1,33 @@
+<div class="card border-danger bg-danger text-white mr-3 mb-3">
+  <div class="card-header"><fa-icon [icon]="icon"></fa-icon> {{objekt.name}}</div>
+  <div class="card-body" [ngSwitch]="typ">
+    <ng-container *ngSwitchCase="'Auto'">
+      <pre>&#x0007B;</pre>
+      <pre>  farbe: "{{objekt.farbe}}",</pre>
+      <pre>  marke: "{{objekt.marke}}",</pre>
+      <pre>  motor: #ref>{{objekt.motor.name}},</pre>
+      <pre>  radVorneLinks: #ref>{{objekt.radVorneLinks.name}},</pre>
+      <pre>  radVorneRechts: #ref>{{objekt.radVorneRechts.name}},</pre>
+      <pre>  radHintenLinks: #ref>{{objekt.radHintenLinks.name}},</pre>
+      <pre>  radHintenRechts: #ref>{{objekt.radHintenRechts.name}}</pre>
+      <pre>&#x0007D;</pre>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Motor'">
+      <pre>&#x0007B;</pre>
+      <pre>  leistungInKw: {{objekt.leistungInKw}},</pre>
+      <pre>  treibstoff: "{{objekt.treibstoff}}"</pre>
+      <pre>&#x0007D;</pre>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Rad'">
+      <pre>&#x0007B;</pre>
+      <pre>  reifenZustandInProzent: {{objekt.reifenZustandInProzent}},</pre>
+      <pre>  reifenTyp: "{{objekt.reifenTyp}}"</pre>
+      <pre>&#x0007D;</pre>
+    </ng-container>
+  </div>
+  <div class="card-footer">
+    <p *ngFor="let item of typMethoden">
+      <button type="button" class="btn btn-sm btn-light text-monospace" (click)="runMethode(item)"><small>{{item}}</small></button>
+    </p>
+  </div>
+</div>

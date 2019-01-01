@@ -1,0 +1,27 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+<div class="modal-header">
+  <h4 class="modal-title">Konstruktor für "Motor"</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+      <label for="name">Name der Instanz</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+    </div>
+    <h5>Parameter</h5>
+    <div class="form-group">
+      <label for="leistungInKw">leistungInKw</label>
+      <input type="number" class="form-control" formControlName="leistungInKw" id="leistungInKw">
+    </div>
+    <div class="form-group">
+      <label for="treibstoff">treibstoff</label>
+      <select class="custom-select form-control" formControlName="treibstoff" id="treibstoff">
+        <option selected>Benzin</option>
+        <option>Diesel</option>
+      </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Neue Instanz anlegen</button>
+    <button type="button" class="btn btn-secondary" (click)="close()">Abbrechen</button>
+  </div>
+</form>
