@@ -1,7 +1,7 @@
 Grundlegende Konzepte der objektorientierten Programmierung
 ===========================================================
 
-Die Software zeigt vereinfacht den Zusammenhang zwischen Klassen und Objekten auf.
+Die Software zeigt vereinfacht den Zusammenhang zwischen Klassen und Objekten auf: https://tschuegge.github.io/Grundlegende-Konzepte-OOP/dist/
 
 Inbetriebname
 -------------
