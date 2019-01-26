@@ -11,6 +11,7 @@
     <div class="form-group">
       <label for="reifentyp">reifentyp</label>
       <select class="custom-select form-control" formControlName="reifentyp" id="reifentyp">
+        <option></option>
         <option *ngFor="let item of typen | keyvalue" [value]="item.key">{{item.value}}</option>
       </select>
     </div>

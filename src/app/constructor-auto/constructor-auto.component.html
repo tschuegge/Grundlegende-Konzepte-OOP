@@ -20,6 +20,7 @@
     <div class="form-group">
       <label for="motor">motor</label>
       <select class="custom-select form-control" formControlName="motor" id="motor">
+        <option *ngIf="motoren.length > 0"></option>
         <option *ngFor="let motor of motoren" [ngValue]="motor">{{motor.name}}</option>
         <option *ngIf="motoren.length === 0" disabled>Keine Instanzen vom Typ "Motor" vorhanden!</option>
       </select>
@@ -27,6 +28,7 @@
     <div class="form-group">
       <label for="radVorneLinks">radVorneLinks</label>
       <select class="custom-select form-control" formControlName="radVorneLinks" id="radVorneLinks">
+        <option *ngIf="raeder.length > 0"></option>
         <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
         <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
       </select>
@@ -34,6 +36,7 @@
     <div class="form-group">
       <label for="radVorneRechts">radVorneRechts</label>
       <select class="custom-select form-control" formControlName="radVorneRechts" id="radVorneRechts">
+        <option *ngIf="raeder.length > 0"></option>
         <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
         <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
       </select>
@@ -41,6 +44,7 @@
     <div class="form-group">
       <label for="radHintenLinks">radHintenLinks</label>
       <select class="custom-select form-control" formControlName="radHintenLinks" id="radHintenLinks">
+        <option *ngIf="raeder.length > 0"></option>
         <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
         <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
       </select>
@@ -48,6 +52,7 @@
     <div class="form-group">
       <label for="radHintenRechts">radHintenRechts</label>
       <select class="custom-select form-control" formControlName="radHintenRechts" id="radHintenRechts">
+        <option *ngIf="raeder.length > 0"></option>
         <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
         <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
       </select>

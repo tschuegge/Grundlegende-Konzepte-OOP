@@ -29,23 +29,32 @@ export class AppComponent {
   ) { }
 
   openNewRadPopup() {
-    this.modalService.open(ConstructorRadComponent, { size: "lg" }).result.then(newRad => {
-      this.objekte.push(newRad);
-    });
+    this.modalService.open(ConstructorRadComponent, { size: "lg" }).result.then(
+      newRad => {
+        this.objekte.push(newRad);
+      },
+      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
+    );
   }
   openNewMotorPopup() {
-    this.modalService.open(ConstructorMotorComponent, { size: "lg" }).result.then(newMotor => {
-      this.objekte.push(newMotor);
-    });
+    this.modalService.open(ConstructorMotorComponent, { size: "lg" }).result.then(
+      newMotor => {
+        this.objekte.push(newMotor);
+      },
+      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
+    );
   }
 
   openNewAutoPopup() {
     const popupRef = this.modalService.open(ConstructorAutoComponent, { size: "lg" });
     popupRef.componentInstance.motoren = this.objekte.filter(obj => obj instanceof Motor);
     popupRef.componentInstance.raeder = this.objekte.filter(obj => obj instanceof Rad);
-    popupRef.result.then(newAuto => {
-      this.objekte.push(newAuto);
-    });
+    popupRef.result.then(
+      newAuto => {
+        this.objekte.push(newAuto);
+      },
+      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
+    );
   }
 
   generateAuto() {

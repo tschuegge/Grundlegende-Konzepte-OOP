@@ -1,8 +1,8 @@
 <form [formGroup]="form" (submit)="onSubmit()">
-<div class="modal-header">
-  <h4 class="modal-title">Konstruktor für "Motor"</h4>
-</div>
-<div class="modal-body">
+  <div class="modal-header">
+    <h4 class="modal-title">Konstruktor für "Motor"</h4>
+  </div>
+  <div class="modal-body">
     <div class="form-group">
       <label for="name">Name der Instanz</label>
       <input type="text" class="form-control" formControlName="name" id="name">
@@ -15,7 +15,8 @@
     <div class="form-group">
       <label for="treibstoff">treibstoff</label>
       <select class="custom-select form-control" formControlName="treibstoff" id="treibstoff">
-        <option selected>Benzin</option>
+        <option></option>
+        <option>Benzin</option>
         <option>Diesel</option>
       </select>
     </div>
