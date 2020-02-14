@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ConstructorRadComponent } from './constructor-rad/constructor-rad.component';
 import { InstanceBase } from './models/instance-base';
 import { ConstructorMotorComponent } from './constructor-motor/constructor-motor.component';
@@ -23,6 +23,7 @@ export class AppComponent {
   objekte = new Array<InstanceBase>();
 
   faInfoCircle = faInfoCircle;
+  faTrash = faTrash;
 
   constructor(
     private modalService: NgbModal

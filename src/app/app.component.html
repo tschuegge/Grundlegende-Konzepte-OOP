@@ -1,5 +1,10 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
-  <span class="navbar-brand">Grundlegende Konzepte</span>
+  <span class="navbar-brand">Grundlegende Konzepte OOP</span>
+  <form class="form-inline">
+    <button title="Alle Objekte löschen" class="btn btn-outline-light">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+  </form>
 </nav>
 
 <div class="container-fluid" style="margin-top: 70px;">
@@ -61,6 +66,8 @@
   <h3>Objekte</h3>
   <div class="d-flex flex-wrap">
     <app-objekt-anzeige *ngFor="let objekt of objekte" [objekt]="objekt"></app-objekt-anzeige>
-    <div *ngIf="objekte.length === 0" class="text-muted"><fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon><em>Keine Objekte vorhanden</em></div>
+    <div *ngIf="objekte.length === 0" class="text-muted">
+      <fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon> <em>Keine Objekte vorhanden</em>
+    </div>
   </div>
 </div>
