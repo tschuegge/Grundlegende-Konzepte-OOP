@@ -22,6 +22,10 @@ export class MethodenAusfuehrenComponent implements OnInit {
 
   ngOnInit() {
     switch (this.methode) {
+      case Methode.autoVollgas:
+        this.form = new FormGroup({});
+        break;
+
       case Methode.autoBeschleunigen:
       case Methode.motorBerechneGeschwindigkeit:
         this.form = new FormGroup({
