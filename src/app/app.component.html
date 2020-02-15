@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
   <span class="navbar-brand">Grundlegende Konzepte OOP</span>
   <form class="form-inline">
-    <button title="Alle Objekte löschen" class="btn btn-outline-light">
+    <button title="Alle Objekte löschen" class="btn btn-outline-light" (click)="entferneAlleObjekte()">
       <fa-icon [icon]="faTrash"></fa-icon>
     </button>
   </form>
@@ -27,8 +27,8 @@
         <pre>+ vollgas(): number</pre>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-sm btn-primary text-monospace mr-3" (click)="openNewAutoPopup()"><small>new Auto()</small></button>
-        <button type="button" class="btn btn-sm btn-secondary text-monospace" (click)="generateAuto()"><small>new Auto() (automatisch)</small></button>
+        <button type="button" class="btn btn-sm btn-primary text-monospace mr-3" (click)="oeffneNeuesAutoPopup()"><small>new Auto()</small></button>
+        <button type="button" class="btn btn-sm btn-secondary text-monospace" (click)="generiereAuto()"><small>new Auto() (automatisch)</small></button>
       </div>
     </div>
     <div class="card mr-3 mb-3">
@@ -42,7 +42,7 @@
         <pre>+ berechneGeschwindigkeit(gaspedalInProzent: number): number</pre>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="openNewMotorPopup()"><small>new Motor()</small></button>
+        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="oeffneNeuerMotorPopup()"><small>new Motor()</small></button>
       </div>
     </div>
     <div class="card mr-3 mb-3">
@@ -56,7 +56,7 @@
         <pre>+ reifenAbnutzen(gaspedalInProzent: number, leistungInKw: number): void</pre>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="openNewRadPopup()"><small>new Rad()</small></button>
+        <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="oeffneNeuesRadPopup()"><small>new Rad()</small></button>
       </div>
     </div>
   </div>

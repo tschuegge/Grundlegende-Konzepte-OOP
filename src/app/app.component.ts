@@ -29,7 +29,7 @@ export class AppComponent {
     private modalService: NgbModal
   ) { }
 
-  openNewRadPopup() {
+  oeffneNeuesRadPopup() {
     this.modalService.open(ConstructorRadComponent, { size: "lg" }).result.then(
       newRad => {
         this.objekte.push(newRad);
@@ -37,7 +37,7 @@ export class AppComponent {
       () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
     );
   }
-  openNewMotorPopup() {
+  oeffneNeuerMotorPopup() {
     this.modalService.open(ConstructorMotorComponent, { size: "lg" }).result.then(
       newMotor => {
         this.objekte.push(newMotor);
@@ -46,7 +46,7 @@ export class AppComponent {
     );
   }
 
-  openNewAutoPopup() {
+  oeffneNeuesAutoPopup() {
     const popupRef = this.modalService.open(ConstructorAutoComponent, { size: "lg" });
     popupRef.componentInstance.motoren = this.objekte.filter(obj => obj instanceof Motor);
     popupRef.componentInstance.raeder = this.objekte.filter(obj => obj instanceof Rad);
@@ -58,7 +58,7 @@ export class AppComponent {
     );
   }
 
-  generateAuto() {
+  generiereAuto() {
     const autoName = `Auto_${Math.floor(Math.random() * 1000)}`;
     const reifentyp = ReifenTyp[Object.keys(ReifenTyp)[Math.floor(Math.random() * Object.keys(ReifenTyp).length)]];
     const treibstoff = Treibstoff[Object.keys(Treibstoff)[Math.floor(Math.random() * Object.keys(Treibstoff).length)]];
@@ -77,5 +77,9 @@ export class AppComponent {
 
     this.objekte.push(new Auto(autoName, farbe, marke, motor, radVL, radVR, radHL, radHR));
     this.objekte.push(motor, radVL, radVR, radHL, radHR);
+  }
+
+  entferneAlleObjekte() {
+    this.objekte.splice(0, this.objekte.length); // Array mit den Objekten leeren
   }
 }
