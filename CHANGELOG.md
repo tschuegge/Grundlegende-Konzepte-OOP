@@ -1,3 +1,8 @@
+1.1.0 (15.02.2019)
+==================
+- Aktualisierung auf Angular 9.0
+- Erzeugte Objekte können gelöscht werden
+
 1.0.1 (13.02.2019)
 ==================
 - Aktualisierung auf Angular 7.2
