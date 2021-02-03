@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
 import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
-import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { AppComponent } from './app.component';
@@ -27,8 +26,6 @@ import { MethodenAusfuehrenComponent } from './methoden-ausfuehren/methoden-ausf
     FormsModule,
     ReactiveFormsModule,
     NgbModalModule,
-    NgBootstrapFormValidationModule.forRoot(),
-    NgBootstrapFormValidationModule,
     FontAwesomeModule
   ],
   providers: [],

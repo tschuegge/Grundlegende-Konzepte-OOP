@@ -34,6 +34,7 @@ export class ConstructorAutoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       this.activeModal.close(new Auto(
         this.form.value.name,

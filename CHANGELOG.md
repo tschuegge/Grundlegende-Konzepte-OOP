@@ -1,3 +1,9 @@
+1.2.0 (03.02.2021)
+==================
+- Aktualisierung auf Angular 11.1
+- Abhängigkeit auf ng-bootstrap-form-validation entfernt
+- VSCode Extension Recommendations hinzugefügt
+
 1.1.0 (15.02.2019)
 ==================
 - Aktualisierung auf Angular 9.0

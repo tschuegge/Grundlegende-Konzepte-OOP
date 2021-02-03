@@ -6,3 +6,11 @@ pre {
   margin-bottom: 0;
   font-size: 0.7em;
 }
+
+// Bootstrap Form Validation
+.ng-touched.ng-invalid {
+  @extend .is-invalid;
+}
+.ng-touched.ng-valid {
+  @extend .is-valid;
+}

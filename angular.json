@@ -61,13 +61,12 @@
               ],
               "optimization": true,
               "outputHashing": "none",
-              "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "sourceMap": false,
               "budgets": [
                 {
                   "type": "initial",

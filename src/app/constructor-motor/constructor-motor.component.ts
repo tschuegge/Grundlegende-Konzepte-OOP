@@ -24,6 +24,7 @@ export class ConstructorMotorComponent implements OnInit {
   }
 
   onSubmit() {
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       this.activeModal.close(new Motor(this.form.value.name, this.form.value.leistungInKw, this.form.value.treibstoff));
     }

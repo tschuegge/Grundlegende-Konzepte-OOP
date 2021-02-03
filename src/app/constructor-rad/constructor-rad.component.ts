@@ -25,6 +25,7 @@ export class ConstructorRadComponent implements OnInit {
   }
 
   onSubmit() {
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       this.activeModal.close(new Rad(this.form.value.name, this.form.value.reifentyp));
     }
