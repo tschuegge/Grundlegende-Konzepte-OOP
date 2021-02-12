@@ -1,3 +1,8 @@
+1.2.1 (03.02.2021)
+==================
+- Aktualisierung auf Angular 11.2
+- Alle npm Pakete auf die neuste Version aktualisiert
+
 1.2.0 (03.02.2021)
 ==================
 - Aktualisierung auf Angular 11.1
