@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rad } from '../models/rad';
 import { ReifenTyp } from '../models/reifen-typ';
@@ -10,15 +10,15 @@ import { ReifenTyp } from '../models/reifen-typ';
 })
 export class ConstructorRadComponent {
 
-  form: UntypedFormGroup;
+  form: FormGroup;
   typen = ReifenTyp;
 
   constructor(
     private activeModal: NgbActiveModal
   ) {
-    this.form = new UntypedFormGroup({
-      "name": new UntypedFormControl(null, Validators.required),
-      "reifentyp": new UntypedFormControl(null, Validators.required)
+    this.form = new FormGroup({
+      "name": new FormControl("", Validators.required),
+      "reifentyp": new FormControl<ReifenTyp | null>(null, Validators.required)
     });
   }
 

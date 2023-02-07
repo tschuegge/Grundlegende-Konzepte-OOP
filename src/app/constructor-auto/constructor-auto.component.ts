@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Rad } from '../models/rad';
 import { Motor } from '../models/motor';
 import { Auto } from '../models/auto';
@@ -11,7 +11,7 @@ import { Auto } from '../models/auto';
 })
 export class ConstructorAutoComponent {
 
-  form: UntypedFormGroup;
+  form: FormGroup;
 
   @Input() motoren = new Array<Motor>();
   @Input() raeder = new Array<Rad>();
@@ -19,15 +19,15 @@ export class ConstructorAutoComponent {
   constructor(
     private activeModal: NgbActiveModal
   ) {
-    this.form = new UntypedFormGroup({
-      "name": new UntypedFormControl(null, Validators.required),
-      "farbe": new UntypedFormControl(null, Validators.required),
-      "marke": new UntypedFormControl(null, Validators.required),
-      "motor": new UntypedFormControl(null, Validators.required),
-      "radVorneLinks": new UntypedFormControl(null, Validators.required),
-      "radVorneRechts": new UntypedFormControl(null, Validators.required),
-      "radHintenLinks": new UntypedFormControl(null, Validators.required),
-      "radHintenRechts": new UntypedFormControl(null, Validators.required)
+    this.form = new FormGroup({
+      "name": new FormControl("", Validators.required),
+      "farbe": new FormControl("", Validators.required),
+      "marke": new FormControl("", Validators.required),
+      "motor": new FormControl<Motor | null>(null, Validators.required),
+      "radVorneLinks": new FormControl<Rad | null>(null, Validators.required),
+      "radVorneRechts": new FormControl<Rad | null>(null, Validators.required),
+      "radHintenLinks": new FormControl<Rad | null>(null, Validators.required),
+      "radHintenRechts": new FormControl<Rad | null>(null, Validators.required)
     });
   }
 

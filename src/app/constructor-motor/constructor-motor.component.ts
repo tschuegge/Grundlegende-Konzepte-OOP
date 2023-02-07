@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Motor } from '../models/motor';
+import { Treibstoff } from '../models/treibstoff';
 
 @Component({
   selector: 'app-constructor-motor',
@@ -9,15 +10,15 @@ import { Motor } from '../models/motor';
 })
 export class ConstructorMotorComponent {
 
-  form: UntypedFormGroup;
+  form: FormGroup;
 
   constructor(
     private activeModal: NgbActiveModal
   ) {
-    this.form = new UntypedFormGroup({
-      "name": new UntypedFormControl(null, Validators.required),
-      "leistungInKw": new UntypedFormControl(null, Validators.required),
-      "treibstoff": new UntypedFormControl(null, Validators.required)
+    this.form = new FormGroup({
+      "name": new FormControl("", Validators.required),
+      "leistungInKw": new FormControl<number | null>(null, Validators.required),
+      "treibstoff": new FormControl<Treibstoff | null>(null, Validators.required)
     });
   }
 
