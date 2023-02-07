@@ -1,28 +1,28 @@
 1.3.0 (07.02.2023)
-==================
+------------------
 - Aktualisierung auf Angular 15.1, Bootstrap 5
 - Kompatibilität mit Node 18 hergestellt
 - Eingaben verbessert durch horizontale Formulare
 - Linter (eslint) hinzugefügt
 
 1.2.1 (03.02.2021)
-==================
+------------------
 - Aktualisierung auf Angular 11.2
 - Alle npm Pakete auf die neuste Version aktualisiert
 
 1.2.0 (03.02.2021)
-==================
+------------------
 - Aktualisierung auf Angular 11.1
 - Abhängigkeit auf ng-bootstrap-form-validation entfernt
 - VSCode Extension Recommendations hinzugefügt
 
 1.1.0 (15.02.2019)
-==================
+------------------
 - Aktualisierung auf Angular 9.0
 - Erzeugte Objekte können gelöscht werden
 
 1.0.1 (13.02.2019)
-==================
+------------------
 - Aktualisierung auf Angular 7.2
 - Build-Tasks definiert
 - Build veröffentlicht für GitHub Pages

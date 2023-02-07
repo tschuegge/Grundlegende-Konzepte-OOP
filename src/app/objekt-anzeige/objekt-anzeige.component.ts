@@ -26,7 +26,6 @@ export class ObjektAnzeigeComponent implements OnInit {
     private modalService: NgbModal
   ) { }
 
-
   ngOnInit(): void {
     if (this.objekt instanceof Rad) {
       this.typ = "Rad";
