@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "angular.ng-template",
-    "msjsdiag.debugger-for-chrome"
+    "angular.ng-template"
   ]
 }

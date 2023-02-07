@@ -1,5 +1,5 @@
 /* Bootstrap */
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 // Anpassungen Bootstrap
 pre {
@@ -11,6 +11,7 @@ pre {
 .ng-touched.ng-invalid {
   @extend .is-invalid;
 }
+
 .ng-touched.ng-valid {
   @extend .is-valid;
 }

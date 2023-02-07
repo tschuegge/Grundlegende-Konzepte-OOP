@@ -1,7 +1,7 @@
 /**
  * Basisklasse aller instanzierbaren Klasse
  */
-export abstract class InstanceBase {
+export abstract class AutoClassBase {
   constructor(
 
     /**

@@ -1,4 +1,4 @@
-import { InstanceBase } from './instance-base';
+import { AutoClassBase } from './auto-class-base';
 import { ReifenTyp } from './reifen-typ';
 
 /**
@@ -6,7 +6,7 @@ import { ReifenTyp } from './reifen-typ';
  * für die Deklaration der Instanzvariablen wurde die ausführliche Schreibweise gewählt,
  * die Kurzschreibweise wurde bei der Klasse "Auto" verwendet
  */
-export class Rad extends InstanceBase {
+export class Rad extends AutoClassBase {
 
   /**
    * Zustand des Reifens in Prozent

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Motor } from '../models/motor';
 
@@ -7,19 +7,17 @@ import { Motor } from '../models/motor';
   selector: 'app-constructor-motor',
   templateUrl: './constructor-motor.component.html'
 })
-export class ConstructorMotorComponent implements OnInit {
+export class ConstructorMotorComponent {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private activeModal: NgbActiveModal
-  ) { }
-
-  ngOnInit() {
-    this.form = new FormGroup({
-      "name": new FormControl(null, Validators.required),
-      "leistungInKw": new FormControl(null, Validators.required),
-      "treibstoff": new FormControl(null, Validators.required)
+  ) {
+    this.form = new UntypedFormGroup({
+      "name": new UntypedFormControl(null, Validators.required),
+      "leistungInKw": new UntypedFormControl(null, Validators.required),
+      "treibstoff": new UntypedFormControl(null, Validators.required)
     });
   }
 

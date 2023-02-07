@@ -2,12 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Rad } from '../models/rad';
 import { Motor } from '../models/motor';
 import { Auto } from '../models/auto';
-import { faCarSide, faCogs } from "@fortawesome/free-solid-svg-icons";
+import { faCarSide, faCogs, faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MethodenAusfuehrenComponent } from '../methoden-ausfuehren/methoden-ausfuehren.component';
 import { Methode } from '../methoden-ausfuehren/methode';
+import { AutoClassBase } from '../models/auto-class-base';
 
 @Component({
   selector: 'app-objekt-anzeige',
@@ -16,10 +17,10 @@ import { Methode } from '../methoden-ausfuehren/methode';
 })
 export class ObjektAnzeigeComponent implements OnInit {
 
-  @Input() objekt: any;
-  typ: "Rad" | "Motor" | "Auto";
+  @Input() objekt: AutoClassBase = { name: "" };
+  typ?: "Rad" | "Motor" | "Auto";
   typMethoden = Array<Methode>();
-  icon: IconDefinition;
+  icon: IconDefinition = faQuestion;
   methoden = Methode;
   constructor(
     private modalService: NgbModal

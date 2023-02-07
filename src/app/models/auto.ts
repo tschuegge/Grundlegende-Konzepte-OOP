@@ -1,4 +1,4 @@
-import { InstanceBase } from './instance-base';
+import { AutoClassBase } from './auto-class-base';
 import { Motor } from './motor';
 import { Rad } from './rad';
 
@@ -7,7 +7,7 @@ import { Rad } from './rad';
  * für die Deklaration der Instanzvariablen wurde die Kurzschreibweise verwendet,
  * die ausführliche Schreibweise wurden bei den Klassen "Rad" und "Motor" verwendet
  */
-export class Auto extends InstanceBase {
+export class Auto extends AutoClassBase {
 
   /**
    * Konstruktor

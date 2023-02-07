@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rad } from '../models/rad';
 import { ReifenTyp } from '../models/reifen-typ';
@@ -8,21 +8,20 @@ import { ReifenTyp } from '../models/reifen-typ';
   selector: 'app-constructor-rad',
   templateUrl: './constructor-rad.component.html'
 })
-export class ConstructorRadComponent implements OnInit {
+export class ConstructorRadComponent {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   typen = ReifenTyp;
 
   constructor(
     private activeModal: NgbActiveModal
-  ) { }
-
-  ngOnInit() {
-    this.form = new FormGroup({
-      "name": new FormControl(null, Validators.required),
-      "reifentyp": new FormControl(null, Validators.required)
+  ) {
+    this.form = new UntypedFormGroup({
+      "name": new UntypedFormControl(null, Validators.required),
+      "reifentyp": new UntypedFormControl(null, Validators.required)
     });
   }
+
 
   onSubmit() {
     this.form.markAllAsTouched();

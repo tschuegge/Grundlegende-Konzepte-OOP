@@ -3,5 +3,6 @@
  */
 export enum Treibstoff {
   Benzin = "Benzin",
-  Diesel = "Diesel"
+  Diesel = "Diesel",
+  Elektro = "Elektro"
 }

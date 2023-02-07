@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { faInfoCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ConstructorRadComponent } from './constructor-rad/constructor-rad.component';
-import { InstanceBase } from './models/instance-base';
+import { AutoClassBase } from './models/auto-class-base';
 import { ConstructorMotorComponent } from './constructor-motor/constructor-motor.component';
 import { Motor } from './models/motor';
 import { Treibstoff } from './models/treibstoff';
@@ -20,7 +20,7 @@ export class AppComponent {
   treibstoffe = Treibstoff;
   reifentypen = ReifenTyp;
 
-  objekte = new Array<InstanceBase>();
+  objekte = new Array<AutoClassBase>();
 
   faInfoCircle = faInfoCircle;
   faTrash = faTrash;
@@ -60,8 +60,10 @@ export class AppComponent {
 
   generiereAuto() {
     const autoName = `Auto_${Math.floor(Math.random() * 1000)}`;
-    const reifentyp = ReifenTyp[Object.keys(ReifenTyp)[Math.floor(Math.random() * Object.keys(ReifenTyp).length)]];
-    const treibstoff = Treibstoff[Object.keys(Treibstoff)[Math.floor(Math.random() * Object.keys(Treibstoff).length)]];
+    const reifentypen = [ReifenTyp.MuS, ReifenTyp.Sommer, ReifenTyp.Spikes];
+    const reifentyp = reifentypen[Math.floor(Math.random() * reifentypen.length)];
+    const treibstoffe = [Treibstoff.Benzin, Treibstoff.Diesel, Treibstoff.Elektro];
+    const treibstoff = treibstoffe[Math.floor(Math.random() * treibstoffe.length)];
 
     const marken = ["Ford", "Volkswagen", "Skoda", "Peugeot", "Volvo", "Citroën", "Opel", "Dacia", "Toyota", "Mazda", "Renault", "Honda"];
     const marke = marken[Math.floor(Math.random() * marken.length)];

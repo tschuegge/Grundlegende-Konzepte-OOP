@@ -13,28 +13,22 @@ import { ConstructorAutoComponent } from './constructor-auto/constructor-auto.co
 import { MethodenAusfuehrenComponent } from './methoden-ausfuehren/methoden-ausfuehren.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ConstructorRadComponent,
-    ConstructorMotorComponent,
-    ObjektAnzeigeComponent,
-    ConstructorAutoComponent,
-    MethodenAusfuehrenComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModalModule,
-    FontAwesomeModule
-  ],
-  providers: [],
-  entryComponents: [
-    ConstructorRadComponent,
-    ConstructorMotorComponent,
-    ConstructorAutoComponent,
-    MethodenAusfuehrenComponent
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ConstructorRadComponent,
+        ConstructorMotorComponent,
+        ObjektAnzeigeComponent,
+        ConstructorAutoComponent,
+        MethodenAusfuehrenComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgbModalModule,
+        FontAwesomeModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,9 @@
+1.3.0 (07.02.2023)
+==================
+- Aktualisierung auf Angular 15.1, Bootstrap 5
+- Kompatibilität mit Node 18 hergestellt
+- Eingaben verbessert durch horizontale Formulare
+
 1.2.1 (03.02.2021)
 ==================
 - Aktualisierung auf Angular 11.2

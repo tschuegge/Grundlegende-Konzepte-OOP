@@ -4,18 +4,97 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
+      "label": "Build",
       "type": "npm",
       "script": "build",
-      "problemMatcher": [],
-      "group": "build"
+      "problemMatcher": {
+        "owner": "typescript",
+        // Built-in Pattern $tsc incorrect: https://github.com/angular/vscode-ng-language-service/issues/625#issuecomment-1412676182
+        "base": "$tsc",
+        "pattern": {
+          "regexp": "^Error: ([^\\s].*?):(\\d+):(\\d+).*(error|warning|info)\\s+TS(\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     },
     {
-      "label": "build github",
+      "label": "Build for GitHub",
       "type": "npm",
       "script": "build:github",
-      "problemMatcher": [],
-      "group": "build"
+      "problemMatcher": {
+        "owner": "typescript",
+        // Built-in Pattern $tsc incorrect: https://github.com/angular/vscode-ng-language-service/issues/625#issuecomment-1412676182
+        "base": "$tsc",
+        "pattern": {
+          "regexp": "^Error: ([^\\s].*?):(\\d+):(\\d+).*(error|warning|info)\\s+TS(\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Launch Dev Server",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        // Built-in Pattern $tsc incorrect: https://github.com/angular/vscode-ng-language-service/issues/625#issuecomment-1412676182
+        "base": "$tsc",
+        "pattern": {
+          "regexp": "^Error: ([^\\s].*?):(\\d+):(\\d+).*(error|warning|info)\\s+TS(\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      }
     }
   ]
 }

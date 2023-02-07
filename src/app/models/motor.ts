@@ -1,4 +1,4 @@
-import { InstanceBase } from './instance-base';
+import { AutoClassBase } from './auto-class-base';
 import { Treibstoff } from './treibstoff';
 
 /**
@@ -6,7 +6,7 @@ import { Treibstoff } from './treibstoff';
  * für die Deklaration der Instanzvariablen wurde die ausführliche Schreibweise gewählt,
  * die Kurzschreibweise wurde bei der Klasse "Auto" verwendet
  */
-export class Motor extends InstanceBase {
+export class Motor extends AutoClassBase {
 
   /**
    * Leistung des Motors in Kilowatt

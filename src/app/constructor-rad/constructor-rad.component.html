@@ -3,17 +3,21 @@
     <h4 class="modal-title">Konstruktor für "Rad"</h4>
   </div>
   <div class="modal-body">
-    <div class="form-group">
-      <label for="name">Name der Instanz</label>
-      <input type="text" class="form-control" formControlName="name" id="name">
+    <div class="row mb-3">
+      <label for="name" class="col-sm-3 col-form-label">Instanzname</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="name" id="name">
+      </div>
     </div>
     <h5>Parameter</h5>
-    <div class="form-group">
-      <label for="reifentyp">reifentyp</label>
-      <select class="custom-select form-control" formControlName="reifentyp" id="reifentyp">
-        <option></option>
-        <option *ngFor="let item of typen | keyvalue" [value]="item.key">{{item.value}}</option>
-      </select>
+    <div class="row mb-3">
+      <label for="reifentyp" class="col-sm-3 col-form-label">reifentyp</label>
+      <div class="col-sm-9">
+        <select class="form-select" formControlName="reifentyp" id="reifentyp">
+          <option></option>
+          <option *ngFor="let item of typen | keyvalue" [value]="item.key">{{item.value}}</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="modal-footer">

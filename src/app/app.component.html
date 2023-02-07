@@ -1,16 +1,18 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
-  <span class="navbar-brand">Grundlegende Konzepte OOP</span>
-  <form class="form-inline">
-    <button title="Alle Objekte löschen" class="btn btn-outline-light" (click)="entferneAlleObjekte()">
-      <fa-icon [icon]="faTrash"></fa-icon>
-    </button>
-  </form>
+  <div class="container-fluid">
+    <span class="navbar-brand">Grundlegende Konzepte OOP</span>
+    <form class="form-inline">
+      <button title="Alle Objekte löschen" class="btn btn-outline-light" (click)="entferneAlleObjekte()">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </form>
+  </div>
 </nav>
 
 <div class="container-fluid" style="margin-top: 70px;">
   <h3>Klassen</h3>
   <div class="d-flex flex-wrap">
-    <div class="card mr-3 mb-3">
+    <div class="card me-3 mb-3">
       <div class="card-header h6">Auto</div>
       <div class="card-body">
         <pre>+ farbe : string</pre>
@@ -27,11 +29,11 @@
         <pre>+ vollgas(): number</pre>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-sm btn-primary text-monospace mr-3" (click)="oeffneNeuesAutoPopup()"><small>new Auto()</small></button>
+        <button type="button" class="btn btn-sm btn-primary text-monospace me-3" (click)="oeffneNeuesAutoPopup()"><small>new Auto()</small></button>
         <button type="button" class="btn btn-sm btn-secondary text-monospace" (click)="generiereAuto()"><small>new Auto() (automatisch)</small></button>
       </div>
     </div>
-    <div class="card mr-3 mb-3">
+    <div class="card me-3 mb-3">
       <div class="card-header h6">Motor</div>
       <div class="card-body">
         <pre>+ leistungInKw : number</pre>
@@ -45,7 +47,7 @@
         <button type="button" class="btn btn-sm btn-primary text-monospace" (click)="oeffneNeuerMotorPopup()"><small>new Motor()</small></button>
       </div>
     </div>
-    <div class="card mr-3 mb-3">
+    <div class="card me-3 mb-3">
       <div class="card-header h6">Rad</div>
       <div class="card-body">
         <pre>+ reifenZustandInProzent : number</pre>
@@ -67,7 +69,7 @@
   <div class="d-flex flex-wrap">
     <app-objekt-anzeige *ngFor="let objekt of objekte" [objekt]="objekt"></app-objekt-anzeige>
     <div *ngIf="objekte.length === 0" class="text-muted">
-      <fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon> <em>Keine Objekte vorhanden</em>
+      <fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon> Keine Objekte vorhanden
     </div>
   </div>
 </div>
