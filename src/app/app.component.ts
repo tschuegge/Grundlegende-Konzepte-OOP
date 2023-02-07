@@ -29,33 +29,36 @@ export class AppComponent {
     private modalService: NgbModal
   ) { }
 
-  oeffneNeuesRadPopup() {
-    this.modalService.open(ConstructorRadComponent, { size: "lg" }).result.then(
-      newRad => {
-        this.objekte.push(newRad);
-      },
-      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
-    );
-  }
-  oeffneNeuerMotorPopup() {
-    this.modalService.open(ConstructorMotorComponent, { size: "lg" }).result.then(
-      newMotor => {
-        this.objekte.push(newMotor);
-      },
-      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
-    );
+  async oeffneNeuesRadPopup() {
+    try {
+      const popupRef = this.modalService.open(ConstructorRadComponent, { size: "lg" });
+      const newRad = await popupRef.result;
+      this.objekte.push(newRad);
+    } catch {
+      // Modal dismissed
+    }
   }
 
-  oeffneNeuesAutoPopup() {
-    const popupRef = this.modalService.open(ConstructorAutoComponent, { size: "lg" });
-    popupRef.componentInstance.motoren = this.objekte.filter(obj => obj instanceof Motor);
-    popupRef.componentInstance.raeder = this.objekte.filter(obj => obj instanceof Rad);
-    popupRef.result.then(
-      newAuto => {
-        this.objekte.push(newAuto);
-      },
-      () => { } // Workaround: https://github.com/ng-bootstrap/ng-bootstrap/issues/880
-    );
+  async oeffneNeuerMotorPopup() {
+    try {
+      const popupRef = this.modalService.open(ConstructorMotorComponent, { size: "lg" });
+      const newMotor = await popupRef.result;
+      this.objekte.push(newMotor);
+    } catch {
+      // Modal dismissed
+    }
+  }
+
+  async oeffneNeuesAutoPopup() {
+    try {
+      const popupRef = this.modalService.open(ConstructorAutoComponent, { size: "lg" });
+      popupRef.componentInstance.motoren = this.objekte.filter(obj => obj instanceof Motor);
+      popupRef.componentInstance.raeder = this.objekte.filter(obj => obj instanceof Rad);
+      const newAuto = await popupRef.result;
+      this.objekte.push(newAuto);
+    } catch {
+      // Modal dismissed
+    }
   }
 
   generiereAuto() {

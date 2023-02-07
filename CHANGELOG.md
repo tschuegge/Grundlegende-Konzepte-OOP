@@ -3,6 +3,7 @@
 - Aktualisierung auf Angular 15.1, Bootstrap 5
 - Kompatibilität mit Node 18 hergestellt
 - Eingaben verbessert durch horizontale Formulare
+- Linter (eslint) hinzugefügt
 
 1.2.1 (03.02.2021)
 ==================

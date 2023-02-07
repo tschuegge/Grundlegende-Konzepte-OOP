@@ -95,6 +95,12 @@
           }
         }
       }
+    },
+    {
+      "label": "Launch Linter",
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": "$eslint-stylish"
     }
   ]
 }
