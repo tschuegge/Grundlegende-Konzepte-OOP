@@ -1,0 +1,57 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title">Methode "{{methode}}"</h4>
+  </div>
+  <div class="modal-body">
+    @if (result.length === 0) {
+    @switch (methode) {
+    @case (methoden.autoBeschleunigen) {
+    <h4>Parameter</h4>
+    <div class="row mb-3">
+      <label for="gaspedalInProzent" class="col-sm-3 col-form-label">gaspedalInProzent</label>
+      <div class="col-sm-9">
+        <input type="range" class="form-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"><span class="text-monospace">beschleunigen({{form.value.gaspedalInProzent}})</span> ausführen</button>
+    }
+    @case (methoden.autoVollgas) {
+    <button type="submit" class="btn btn-primary"><span class="text-monospace">vollgas()</span> ausführen</button>
+    }
+    @case (methoden.motorBerechneGeschwindigkeit) {
+    <h4>Parameter</h4>
+    <div class="row mb-3">
+      <label for="gaspedalInProzent" class="col-sm-3 col-form-label">gaspedalInProzent</label>
+      <div class="col-sm-9">
+        <input type="range" class="form-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"><span class="text-monospace">berechneGeschwindigkeit({{form.value.gaspedalInProzent}})</span> ausführen</button>
+    }
+    @case (methoden.radReifenAbnutzen) {
+    <h4>Parameter</h4>
+    <div class="row mb-3">
+      <label for="gaspedalInProzent" class="col-sm-3 col-form-label">gaspedalInProzent</label>
+      <div class="col-sm-9">
+        <input type="range" class="form-range" min="0" max="100" formControlName="gaspedalInProzent" id="gaspedalInProzent">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="leistungInKw" class="col-sm-3 col-form-label">leistungInKw</label>
+      <div class="col-sm-9">
+        <input type="number" class="form-control" formControlName="leistungInKw" id="leistungInKw">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"><span class="text-monospace">reifenAbnutzen({{form.value.gaspedalInProzent}}, {{form.value.leistungInKw}})</span> ausführen</button>
+    }
+    }
+    }
+    @if (result.length > 0) {
+    <h4>Ergebnis</h4>
+    <pre>{{result}}</pre>
+    }
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Schliessen</button>
+  </div>
+</form>

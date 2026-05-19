@@ -37,7 +37,11 @@
       <div class="card-header h6">Motor</div>
       <div class="card-body">
         <pre>+ leistungInKw : number</pre>
-        <pre>+ treibstoff : <ng-container *ngFor="let item of treibstoffe | keyvalue; let last = last">"{{item.value}}"<ng-container *ngIf="!last"> | </ng-container></ng-container></pre>
+        <pre>+ treibstoff : @for (item of treibstoffe | keyvalue; track item; let last = $last) {
+          "{{item.value}}"@if (!last) {
+          |
+        }
+      }</pre>
       </div>
       <hr class="my-0">
       <div class="card-body">
@@ -51,7 +55,11 @@
       <div class="card-header h6">Rad</div>
       <div class="card-body">
         <pre>+ reifenZustandInProzent : number</pre>
-        <pre>+ typ : <ng-container *ngFor="let item of reifentypen | keyvalue; let last = last">"{{item.value}}"<ng-container *ngIf="!last"> | </ng-container></ng-container></pre>
+        <pre>+ typ : @for (item of reifentypen | keyvalue; track item; let last = $last) {
+        "{{item.value}}"@if (!last) {
+        |
+      }
+    }</pre>
       </div>
       <hr class="my-0">
       <div class="card-body">
@@ -67,9 +75,13 @@
 
   <h3>Objekte</h3>
   <div class="d-flex flex-wrap">
-    <app-objekt-anzeige *ngFor="let objekt of objekte" [objekt]="objekt"></app-objekt-anzeige>
-    <div *ngIf="objekte.length === 0" class="text-muted">
+    @for (objekt of objekte; track objekt) {
+    <app-objekt-anzeige [objekt]="objekt"></app-objekt-anzeige>
+    }
+    @if (objekte.length === 0) {
+    <div class="text-muted">
       <fa-icon [icon]="faInfoCircle" [fixedWidth]="true"></fa-icon> Keine Objekte vorhanden
     </div>
+    }
   </div>
 </div>

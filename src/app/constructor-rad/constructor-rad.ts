@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rad } from '../models/rad';
 import { ReifenTyp } from '../models/reifen-typ';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-constructor-rad',
-  templateUrl: './constructor-rad.component.html'
+  imports: [ReactiveFormsModule, KeyValuePipe],
+  templateUrl: './constructor-rad.html'
 })
-export class ConstructorRadComponent {
+export class ConstructorRad {
 
   form: FormGroup;
   typen = ReifenTyp;

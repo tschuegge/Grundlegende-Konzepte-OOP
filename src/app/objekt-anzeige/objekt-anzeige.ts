@@ -1,21 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Rad } from '../models/rad';
-import { Motor } from '../models/motor';
-import { Auto } from '../models/auto';
-import { faCarSide, faCogs, faQuestion } from "@fortawesome/free-solid-svg-icons";
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
+import { faQuestion, faCircle, faCogs, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MethodenAusfuehrenComponent } from '../methoden-ausfuehren/methoden-ausfuehren.component';
 import { Methode } from '../methoden-ausfuehren/methode';
+import { Auto } from '../models/auto';
 import { AutoClassBase } from '../models/auto-class-base';
+import { Motor } from '../models/motor';
+import { Rad } from '../models/rad';
+import { MethodenAusfuehren } from '../methoden-ausfuehren/methoden-ausfuehren';
+import { RefreshViewService } from '../refresh-view-service';
 
 @Component({
   selector: 'app-objekt-anzeige',
-  templateUrl: './objekt-anzeige.component.html',
-  styleUrls: ['./objekt-anzeige.component.scss']
+  imports: [FontAwesomeModule],
+  templateUrl: './objekt-anzeige.html'
 })
-export class ObjektAnzeigeComponent implements OnInit {
+export class ObjektAnzeige {
 
   @Input() objekt: AutoClassBase = { name: "" };
   typ?: "Rad" | "Motor" | "Auto";
@@ -23,7 +23,9 @@ export class ObjektAnzeigeComponent implements OnInit {
   icon: IconDefinition = faQuestion;
   methoden = Methode;
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private refreshView: RefreshViewService,
+    private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -41,10 +43,11 @@ export class ObjektAnzeigeComponent implements OnInit {
       this.typMethoden.push(Methode.autoBeschleunigen, Methode.autoVollgas);
     }
 
+    this.refreshView.getObservable().subscribe(() => this.cdRef.markForCheck());
   }
 
   runMethode(methode: Methode) {
-    const popupRef = this.modalService.open(MethodenAusfuehrenComponent, { size: "lg" });
+    const popupRef = this.modalService.open(MethodenAusfuehren, { size: "lg" });
     popupRef.componentInstance.methode = methode;
     popupRef.componentInstance.objekt = this.objekt;
   }

@@ -1,16 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Auto } from '../models/auto';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Methode } from './methode';
+import { Auto } from '../models/auto';
 import { AutoClassBase } from '../models/auto-class-base';
 import { Motor } from '../models/motor';
 import { Rad } from '../models/rad';
+import { Methode } from './methode';
+import { RefreshViewService } from '../refresh-view-service';
 
 @Component({
-  templateUrl: './methoden-ausfuehren.component.html'
+  selector: 'app-methoden-ausfuehren',
+  imports: [ReactiveFormsModule],
+  templateUrl: './methoden-ausfuehren.html'
+
 })
-export class MethodenAusfuehrenComponent implements OnInit {
+export class MethodenAusfuehren {
 
   @Input() objekt?: AutoClassBase;
   @Input() methode?: Methode;
@@ -20,7 +24,8 @@ export class MethodenAusfuehrenComponent implements OnInit {
   methoden = Methode;
 
   constructor(
-    private activeModal: NgbActiveModal
+    private activeModal: NgbActiveModal,
+    private refreshView: RefreshViewService
   ) { }
 
   ngOnInit() {
@@ -63,6 +68,7 @@ export class MethodenAusfuehrenComponent implements OnInit {
       } else {
         this.result = `Interner Fehler aufgetreten: Objekt passt nicht zu aufgerufener Methode`;
       }
+      this.refreshView.refresh();
     }
   }
 

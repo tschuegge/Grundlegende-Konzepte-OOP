@@ -15,7 +15,9 @@
       <div class="col-sm-9">
         <select class="form-select" formControlName="reifentyp" id="reifentyp">
           <option></option>
-          <option *ngFor="let item of typen | keyvalue" [value]="item.key">{{item.value}}</option>
+          @for (item of typen | keyvalue; track item) {
+          <option [value]="item.key">{{item.value}}</option>
+          }
         </select>
       </div>
     </div>

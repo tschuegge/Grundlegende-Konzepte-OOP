@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Motor } from '../models/motor';
 import { Treibstoff } from '../models/treibstoff';
 
 @Component({
   selector: 'app-constructor-motor',
-  templateUrl: './constructor-motor.component.html'
+  imports: [ReactiveFormsModule],
+  templateUrl: './constructor-motor.html'
 })
-export class ConstructorMotorComponent {
+export class ConstructorMotor {
 
   form: FormGroup;
 

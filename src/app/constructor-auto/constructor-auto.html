@@ -27,9 +27,15 @@
       <label for="motor" class="col-sm-3 col-form-label">motor</label>
       <div class="col-sm-9">
         <select class="form-select" formControlName="motor" id="motor">
-          <option *ngIf="motoren.length > 0"></option>
-          <option *ngFor="let motor of motoren" [ngValue]="motor">{{motor.name}}</option>
-          <option *ngIf="motoren.length === 0" disabled>Keine Instanzen vom Typ "Motor" vorhanden!</option>
+          @if (motoren.length > 0) {
+          <option></option>
+          }
+          @for (motor of motoren; track motor) {
+          <option [ngValue]="motor">{{motor.name}}</option>
+          }
+          @if (motoren.length === 0) {
+          <option disabled>Keine Instanzen vom Typ "Motor" vorhanden!</option>
+          }
         </select>
       </div>
     </div>
@@ -37,9 +43,15 @@
       <label for="radVorneLinks" class="col-sm-3 col-form-label">radVorneLinks</label>
       <div class="col-sm-9">
         <select class="form-select" formControlName="radVorneLinks" id="radVorneLinks">
-          <option *ngIf="raeder.length > 0"></option>
-          <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
-          <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          @if (raeder.length > 0) {
+          <option></option>
+          }
+          @for (rad of raeder; track rad) {
+          <option [ngValue]="rad">{{rad.name}}</option>
+          }
+          @if (raeder.length === 0) {
+          <option disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          }
         </select>
       </div>
     </div>
@@ -47,9 +59,15 @@
       <label for="radVorneRechts" class="col-sm-3 col-form-label">radVorneRechts</label>
       <div class="col-sm-9">
         <select class="form-select" formControlName="radVorneRechts" id="radVorneRechts">
-          <option *ngIf="raeder.length > 0"></option>
-          <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
-          <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          @if (raeder.length > 0) {
+          <option></option>
+          }
+          @for (rad of raeder; track rad) {
+          <option [ngValue]="rad">{{rad.name}}</option>
+          }
+          @if (raeder.length === 0) {
+          <option disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          }
         </select>
       </div>
     </div>
@@ -57,9 +75,15 @@
       <label for="radHintenLinks" class="col-sm-3 col-form-label">radHintenLinks</label>
       <div class="col-sm-9">
         <select class="form-select" formControlName="radHintenLinks" id="radHintenLinks">
-          <option *ngIf="raeder.length > 0"></option>
-          <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
-          <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          @if (raeder.length > 0) {
+          <option></option>
+          }
+          @for (rad of raeder; track rad) {
+          <option [ngValue]="rad">{{rad.name}}</option>
+          }
+          @if (raeder.length === 0) {
+          <option disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          }
         </select>
       </div>
     </div>
@@ -67,9 +91,15 @@
       <label for="radHintenRechts" class="col-sm-3 col-form-label">radHintenRechts</label>
       <div class="col-sm-9">
         <select class="form-select" formControlName="radHintenRechts" id="radHintenRechts">
-          <option *ngIf="raeder.length > 0"></option>
-          <option *ngFor="let rad of raeder" [ngValue]="rad">{{rad.name}}</option>
-          <option *ngIf="raeder.length === 0" disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          @if (raeder.length > 0) {
+          <option></option>
+          }
+          @for (rad of raeder; track rad) {
+          <option [ngValue]="rad">{{rad.name}}</option>
+          }
+          @if (raeder.length === 0) {
+          <option disabled>Keine Instanzen vom Typ "Rad" vorhanden!</option>
+          }
         </select>
       </div>
     </div>

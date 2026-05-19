@@ -1,3 +1,7 @@
+2.0.0 (19.05.2026)
+==================
+- Aktualisierung auf Angular 21 mit Rebuild der Applikation
+
 1.3.0 (07.02.2023)
 ------------------
 - Aktualisierung auf Angular 15.1, Bootstrap 5

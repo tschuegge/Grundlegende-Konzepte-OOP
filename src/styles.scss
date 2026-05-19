@@ -1,17 +1,4 @@
-/* Bootstrap */
-@import "bootstrap/scss/bootstrap";
+/* You can add global styles to this file, and also import other style files */
 
-// Anpassungen Bootstrap
-pre {
-  margin-bottom: 0;
-  font-size: 0.7em;
-}
-
-// Bootstrap Form Validation
-.ng-touched.ng-invalid {
-  @extend .is-invalid;
-}
-
-.ng-touched.ng-valid {
-  @extend .is-valid;
-}
+/* Importing Bootstrap SCSS file. */
+@use 'bootstrap/scss/bootstrap';

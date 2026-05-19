@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Rad } from '../models/rad';
-import { Motor } from '../models/motor';
 import { Auto } from '../models/auto';
+import { Motor } from '../models/motor';
+import { Rad } from '../models/rad';
 
 @Component({
   selector: 'app-constructor-auto',
-  templateUrl: './constructor-auto.component.html'
+  imports: [ReactiveFormsModule],
+  templateUrl: './constructor-auto.html'
 })
-export class ConstructorAutoComponent {
+export class ConstructorAuto {
 
   form: FormGroup;
 
