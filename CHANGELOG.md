@@ -1,3 +1,9 @@
+2.0.1 (20.05.2026)
+------------------
+- Aktueller Angular Style Guide angewendet
+- Reload bei Klick auf "Alle Objekte löschen" verhindert
+- Change Detection beim Hinzufügen neuer Objekte wiederhergestellt
+
 2.0.0 (19.05.2026)
 ==================
 - Aktualisierung auf Angular 21 mit Rebuild der Applikation

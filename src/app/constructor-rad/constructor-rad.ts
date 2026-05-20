@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rad } from '../models/rad';
@@ -8,22 +8,20 @@ import { KeyValuePipe } from '@angular/common';
 @Component({
   selector: 'app-constructor-rad',
   imports: [ReactiveFormsModule, KeyValuePipe],
-  templateUrl: './constructor-rad.html'
+  templateUrl: './constructor-rad.html',
 })
 export class ConstructorRad {
+  private activeModal = inject(NgbActiveModal);
 
   form: FormGroup;
   typen = ReifenTyp;
 
-  constructor(
-    private activeModal: NgbActiveModal
-  ) {
+  constructor() {
     this.form = new FormGroup({
-      "name": new FormControl("", Validators.required),
-      "reifentyp": new FormControl<ReifenTyp | null>(null, Validators.required)
+      name: new FormControl('', Validators.required),
+      reifentyp: new FormControl<ReifenTyp | null>(null, Validators.required),
     });
   }
-
 
   onSubmit() {
     this.form.markAllAsTouched();
@@ -35,5 +33,4 @@ export class ConstructorRad {
   close() {
     this.activeModal.dismiss();
   }
-
 }

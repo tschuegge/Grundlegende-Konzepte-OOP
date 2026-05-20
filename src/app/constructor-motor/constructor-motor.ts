@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Motor } from '../models/motor';
@@ -7,31 +7,31 @@ import { Treibstoff } from '../models/treibstoff';
 @Component({
   selector: 'app-constructor-motor',
   imports: [ReactiveFormsModule],
-  templateUrl: './constructor-motor.html'
+  templateUrl: './constructor-motor.html',
 })
 export class ConstructorMotor {
+  private activeModal = inject(NgbActiveModal);
 
-  form: FormGroup;
+  form: FormGroup
 
-  constructor(
-    private activeModal: NgbActiveModal
-  ) {
+  constructor() {
     this.form = new FormGroup({
-      "name": new FormControl("", Validators.required),
-      "leistungInKw": new FormControl<number | null>(null, Validators.required),
-      "treibstoff": new FormControl<Treibstoff | null>(null, Validators.required)
+      name: new FormControl('', Validators.required),
+      leistungInKw: new FormControl<number | null>(null, Validators.required),
+      treibstoff: new FormControl<Treibstoff | null>(null, Validators.required),
     });
   }
 
   onSubmit() {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      this.activeModal.close(new Motor(this.form.value.name, this.form.value.leistungInKw, this.form.value.treibstoff));
+      this.activeModal.close(
+        new Motor(this.form.value.name, this.form.value.leistungInKw, this.form.value.treibstoff),
+      );
     }
   }
 
   close() {
     this.activeModal.dismiss();
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInfoCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,9 +17,11 @@ import { KeyValuePipe } from '@angular/common';
 @Component({
   selector: 'app-root',
   imports: [FontAwesomeModule, ObjektAnzeige, KeyValuePipe],
-  templateUrl: './app.html'
+  templateUrl: './app.html',
 })
 export class App {
+  private modalService = inject(NgbModal);
+  private changeDetector = inject(ChangeDetectorRef);
 
   treibstoffe = Treibstoff;
   reifentypen = ReifenTyp;
@@ -29,15 +31,12 @@ export class App {
   faInfoCircle = faInfoCircle;
   faTrash = faTrash;
 
-  constructor(
-    private modalService: NgbModal
-  ) { }
-
   async oeffneNeuesRadPopup() {
     try {
-      const popupRef = this.modalService.open(ConstructorRad, { size: "lg" });
+      const popupRef = this.modalService.open(ConstructorRad, { size: 'lg' });
       const newRad = await popupRef.result;
       this.objekte.push(newRad);
+      this.changeDetector.markForCheck();
     } catch {
       // Modal dismissed
     }
@@ -45,9 +44,10 @@ export class App {
 
   async oeffneNeuerMotorPopup() {
     try {
-      const popupRef = this.modalService.open(ConstructorMotor, { size: "lg" });
+      const popupRef = this.modalService.open(ConstructorMotor, { size: 'lg' });
       const newMotor = await popupRef.result;
       this.objekte.push(newMotor);
+      this.changeDetector.markForCheck();
     } catch {
       // Modal dismissed
     }
@@ -55,11 +55,12 @@ export class App {
 
   async oeffneNeuesAutoPopup() {
     try {
-      const popupRef = this.modalService.open(ConstructorAuto, { size: "lg" });
-      popupRef.componentInstance.motoren = this.objekte.filter(obj => obj instanceof Motor);
-      popupRef.componentInstance.raeder = this.objekte.filter(obj => obj instanceof Rad);
+      const popupRef = this.modalService.open(ConstructorAuto, { size: 'lg' });
+      popupRef.componentInstance.motoren = this.objekte.filter((obj) => obj instanceof Motor);
+      popupRef.componentInstance.raeder = this.objekte.filter((obj) => obj instanceof Rad);
       const newAuto = await popupRef.result;
       this.objekte.push(newAuto);
+      this.changeDetector.markForCheck();
     } catch {
       // Modal dismissed
     }
@@ -72,10 +73,32 @@ export class App {
     const treibstoffe = [Treibstoff.Benzin, Treibstoff.Diesel, Treibstoff.Elektro];
     const treibstoff = treibstoffe[Math.floor(Math.random() * treibstoffe.length)];
 
-    const marken = ["Ford", "Volkswagen", "Skoda", "Peugeot", "Volvo", "Citroën", "Opel", "Dacia", "Toyota", "Mazda", "Renault", "Honda"];
+    const marken = [
+      'Ford',
+      'Volkswagen',
+      'Skoda',
+      'Peugeot',
+      'Volvo',
+      'Citroën',
+      'Opel',
+      'Dacia',
+      'Toyota',
+      'Mazda',
+      'Renault',
+      'Honda',
+    ];
     const marke = marken[Math.floor(Math.random() * marken.length)];
 
-    const farben = ["Magic Blue", "Moonlight Silver", "Ice White", "Fusion Red", "Denim Blue", "Marple Brown", "Onyx Black", "Terra Grey"];
+    const farben = [
+      'Magic Blue',
+      'Moonlight Silver',
+      'Ice White',
+      'Fusion Red',
+      'Denim Blue',
+      'Marple Brown',
+      'Onyx Black',
+      'Terra Grey',
+    ];
     const farbe = farben[Math.floor(Math.random() * farben.length)];
 
     const motor = new Motor(`${autoName}_motor`, Math.round(Math.random() * 600) + 35, treibstoff);
@@ -86,10 +109,10 @@ export class App {
 
     this.objekte.push(new Auto(autoName, farbe, marke, motor, radVL, radVR, radHL, radHR));
     this.objekte.push(motor, radVL, radVR, radHL, radHR);
+    this.changeDetector.markForCheck();
   }
 
   entferneAlleObjekte() {
     this.objekte.splice(0, this.objekte.length); // Array mit den Objekten leeren
   }
-
 }
